@@ -1,12 +1,21 @@
-import logo from '../assets/logo.svg';
 import './Root.css';
 import UsersList from 'components/UsersList/UsersList';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  background-color: #f7f8fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+`;
 
 function Root() {
   return (
-    <div className="Root">
+    <Wrapper>
       <UsersList />
-    </div>
+    </Wrapper>
   );
 }
 
