@@ -1,25 +1,17 @@
-import './Root.css';
 import UsersList from 'components/organisms/UsersList/UsersList';
-import styled from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../assets/styles/GlobalStyle';
-
-const Wrapper = styled.div`
-  background-color: #f7f8fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-`;
+import { theme } from '../assets/styles/theme';
+import { Wrapper } from './Root.styles';
 
 function Root() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Wrapper>
         <UsersList />
       </Wrapper>
-    </>
+    </ThemeProvider>
   );
 }
 

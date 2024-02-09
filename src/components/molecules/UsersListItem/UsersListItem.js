@@ -1,35 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-// import Button from 'components/atoms/Button/Button';
 import Button from '../../atoms/Button/Button.js';
-
-const Wrapper = styled.li`
-  display: flex;
-  align-items: center;
-  position: relative;
-  &:not(:last-child) {
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background-color: lightgray;
-    }
-  }
-`;
+import { StyledAverage, StyledInfo, Wrapper } from './UsersListItem.styles.js';
 
 const UserListItem = ({ userData: { average, name, attendance = '0%' } }) => {
+  const averageNumber = parseFloat(average.replace(',', '.'));
   return (
     <>
       <Wrapper>
-        <div>{average}</div>
-        <div>
-          <p>{name}</p>
-          <p>{attendance}</p>
-        </div>
-        <Button />
+        <StyledAverage value={averageNumber}>{average}</StyledAverage>
+        <StyledInfo>
+          <p>
+            {name}
+            <Button />
+          </p>
+          <p>attendance: {attendance}</p>
+        </StyledInfo>
       </Wrapper>
     </>
   );
