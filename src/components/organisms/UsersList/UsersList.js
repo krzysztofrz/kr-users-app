@@ -1,4 +1,4 @@
-import UserListItem from 'components/UsersListItem/UsersListItem';
+import UserListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { users } from 'data/users';
 import styled from 'styled-components';
 // import PropTypes from 'prop-types';
