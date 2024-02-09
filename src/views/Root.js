@@ -1,12 +1,17 @@
-import logo from '../assets/logo.svg';
-import './Root.css';
-import UsersList from 'components/UsersList/UsersList';
+import UsersList from 'components/organisms/UsersList/UsersList';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from '../assets/styles/GlobalStyle';
+import { theme } from '../assets/styles/theme';
+import { Wrapper } from './Root.styles';
 
 function Root() {
   return (
-    <div className="Root">
-      <UsersList />
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Wrapper>
+        <UsersList />
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 
