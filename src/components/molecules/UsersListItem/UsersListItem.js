@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../atoms/Button/Button.js';
+import DeleteButton from '../../atoms/DeleteButton/DeleteButton.js';
 import { StyledAverage, StyledInfo, Wrapper } from './UsersListItem.styles.js';
 
-const UserListItem = ({ userData: { average, name, attendance = '0%' } }) => {
+const UserListItem = ({
+  deleteUser,
+  userData: { average, name, attendance = '0%' },
+}) => {
   const averageNumber = parseFloat(average.replace(',', '.'));
   return (
     <>
@@ -12,7 +15,7 @@ const UserListItem = ({ userData: { average, name, attendance = '0%' } }) => {
         <StyledInfo>
           <p>
             {name}
-            <Button />
+            <DeleteButton onClick={() => deleteUser(name)} />
           </p>
           <p>attendance: {attendance}</p>
         </StyledInfo>
